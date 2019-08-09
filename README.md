@@ -28,7 +28,7 @@ After this rough introduction we are ready to get started. Stay with me. It shou
 
 ## What is this the LNA?
 
-According to [original technical reference manual](https://esp32.com/viewtopic.php?t=6745#p29008),  ESP32 integrates and analog amplifier designed to amplify s small DC signal that is then passed on to SAR ADC1 for sampling. The amplification gain is adjustable with two off-chip capacitors.
+According to [original technical reference manual](https://esp32.com/viewtopic.php?t=6745#p29008),  ESP32 integrates an analog amplifier designed to amplify a small DC signal that is then passed on to SAR ADC1 for sampling. The amplification gain is adjustable with two off-chip capacitors.
 
 ![alt text](docs/_static/Low_Noise_Amplifier_Overview.png "ESP32 LNA Overview")
 
@@ -51,7 +51,7 @@ You are a step ahead to get started with ESP32 and LNA and this section will sho
 
 ### Load example code and check how LNA works
 
-[esp32-lna-measure](esp32-lna-measure)
+[TBD]
 
 
 ## Compatibility

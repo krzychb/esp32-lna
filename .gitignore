@@ -1,7 +1,6 @@
 components/lna
 esp32-lna-console
 esp32-lna-measure
-_source
 
 */sdkconfig*
 */build/*
