@@ -37,7 +37,7 @@ The switch `amp_short_ref` is closed to connect external capacitors together and
 
 #### Stage 4
 
-Finally the signal on LNA's output may converted by the ADC and read by digital part of ESP21.
+Finally the signal on LNA's output is converted by the ADC and may be read by digital part of ESP32.
 
 
 ### Timing of the Signal Processing

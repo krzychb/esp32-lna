@@ -40,14 +40,18 @@ You are a step ahead to get started with ESP32 and LNA and this section will sho
 
 ### What your need?
 
-* ESP32 development board with sampling capacitors, see [LNA Enabled Boards](docs/lna-enabled-boards.md) for your options.
+* ESP32 development board with sampling capacitors.
 * Computer [configured and tested](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) to work with ESP-IDF.
-* Source of small DC signal, I suggest using thermocouple type K, 1 kOhm resistor and some cables to connect all elements together.
+* Source of a small (in mV range) DC signal.
 * LNA example code from [esp32-lna](https://github.com/krzychb/esp32-lna) repository.
+
+Please see a separate section with [list and description of components](docs/what-you-need.md) that will be useful testing the LNA. 
+
 
 ### Connect the components
 
 [TBD]
+
 
 ### Load example code and check how LNA works
 
