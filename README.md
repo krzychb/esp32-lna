@@ -50,7 +50,7 @@ Please see a separate section with [list and description of components](docs/wha
 
 ### Connect the components
 
-[TBD]
+![alt text](docs/_static/esp32-pico-kit-lna-schematic.png "Connection of a thermocouple to ESP32-PICO-KIT")
 
 
 ### Load example code and check how LNA works
