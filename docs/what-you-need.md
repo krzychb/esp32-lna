@@ -3,10 +3,10 @@
 To characterize the LNA I have been using the following components and recommend using the same or similar, so you are able to compare measurements:
 
 * **ESP32-PICO-KIT** development board, see [LNA Enabled Boards](#lna-enabled-boards) for other options.
-* **Two 220 pF capacitors**. Original documentation by Espressif provided 270 pF capacitors. I did not have such exact value and used 220 pF instead. 
+* **Two 220 pF capacitors**. Note that original documentation by Espressif provided 270 pF capacitors and this is what I show on schematic. I did not have such exact value and used 220 pF instead.
 * **Thermocouple type K** that will act as the source of a small DC signal. My exact model was `CT5204 NiCr-NiAl (K) izolowany (b) PN-EN60584-1` by [LUMEL](https://www.lumel.com.pl). Exact model is not critical, just make sure you have a thermocouple type K from a known vendor.
-* **1 kOhm resistor** to connect in series with the thermocouple. I will show later why it is required.
-* Optional resistors 100 Ohm, 4.7 kOhm, 10 kOhm and 50 kOhm to verify how input signal resistance affects operation of the LNA.
+* **1 kΩ resistor** to connect in series with the thermocouple. I will show later why it is required.
+* Optional resistors 100 Ω, 4.7 kΩ, 10 kΩ and 47 kΩ to verify how input signal resistance affects operation of the LNA.
 * AM2302 **temperature sensor** to monitor [cold junction](https://blog.beamex.com/thermocouple-cold-junction-compensation) temperature of the thermocouple. An ESP-IDF component to operate AM2302 [is included in this repository](../components/dht). You may connect any other sensor that works with ESP32, or use an ordinary thermometer instead. 
 * A **vacuum cup** with some ice inside to place the thermocouple tip in a stable 0 ºC temperature and have a predictable level of voltage signal on the thermocouple terminals. 
 * Couple of **wires** and a breadboard to connect all the elements together. You may need a screw terminal block depending on a type of terminals of your thermocouple.

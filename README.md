@@ -55,12 +55,22 @@ Please see a separate section with [list and description of components](docs/wha
 
 ### Load example code and check how LNA works
 
-[TBD]
+Two examples are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing LNA output for in function of Stage 1 and Stage 3 cycles (discussed in [LNA Operation](docs/lna-operation.md)).
+
+* Arduino - [esp32-lna-measure.ino](Arduino/esp32-lna-measure/esp32-lna-measure.ino) code and [ESP32LNA](Arduino/libraries/ESP32LNA) library
+* ESP-IDF - [esp32-lna-measure.c](esp32-lna-measure/main/esp_lna_measure.c) code and [lna](components/lna) component
+
+Check section [Characterize LNA](docs/characterize-lna.md) for description what interesting and useful measurements can be done using above examples.
 
 
 ## Compatibility
 
-Code provided in this repository has been developed using master branch of [ESP-IDF](https://github.com/espressif/esp-idf) framework as of August 2019. If you are not familiar with this framework, first follow [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successful compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
+Code provided in this repository has been developed using master branch of [arduino-esp32](https://github.com/espressif/arduino-esp32) and [ESP-IDF](https://github.com/espressif/esp-idf) framework as of August 2019.
+
+If you are not familiar with these frameworks, before starting with LNA, please follow:
+
+* Users less experienced with microcontrollers are recommended to try **Arduino** - [Installation Instructions](https://github.com/espressif/arduino-esp32#installation-instructions), so you are successful compiling and loading [GetChipID](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/ChipID/GetChipID) example.
+* More advanced users - [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successful compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
 
 
 ## Contribute
@@ -78,6 +88,7 @@ This repository has been prepared thanks to great work of the following teams an
 * **Michael** who developed and tested original code to operate LNA and then was kind and brave enough to write it down on a back of envelope, and pass to me, so we have some fun testing this nice peripheral.
 * Espressif team that develops and maintains [esp-idf](https://github.com/espressif/esp-idf) repository
 * [UncleRus](https://github.com/UncleRus) who provides well maintained collections of driver components for ESP32 under https://github.com/UncleRus/esp-idf-lib. I took [DHT](https://github.com/UncleRus/esp-idf-lib/tree/master/components/dht) library from there. Sure enough it worked out of box.
+* [winlin](https://github.com/winlinvip) who provides simple and trouble-free [SimpleDHT](https://github.com/winlinvip/SimpleDHT) Arduino library to read DHT temperature sensors (including AMS2302) connected to ESP32. Some other libraries I tried just did not work or had too complicated or sophisticated examples as for a demo code. 
 
 
 ## License
