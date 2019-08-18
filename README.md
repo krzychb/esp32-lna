@@ -26,7 +26,28 @@ If you are planning to develop a product, then you may need to check a larger ba
 
 After this rough introduction we are ready to get started. Stay with me. It should be fun like trying a forbidden fruit :)
 
-## What is this the LNA?
+
+## Contents
+
+* [Introduction](#esp32-lna)
+    * [The Story](#the-story)
+    * [What do we do next?](#what-do-we-do-next)
+    * [But mind your step](#but-mind-your-step)
+    * [Now let's get started](#now-lets-get-started)
+* [What is this LNA?](#what-is-this-lna)
+    * [LNA Operation](docs/lna-operation.md)
+* [Get Started with LNA](#get-started-with-lna)
+    * [What your need?](#what-your-need)
+    * [Connect the components](#connect-the-components)
+    * [Check how LNA works](#check-how-lna-works)
+    * [Characterize LNA](docs/characterize-lna.md)
+* [Contability](#contability)
+* [Contribute](#contribute)
+* [Credits](#credits)
+* [License](#license)
+
+
+## What is this LNA?
 
 According to [original technical reference manual](https://esp32.com/viewtopic.php?t=6745#p29008),  ESP32 integrates an analog amplifier designed to amplify a small DC signal that is then passed on to SAR ADC1 for sampling. The amplification gain is adjustable with two off-chip capacitors.
 
@@ -53,24 +74,24 @@ Please see a separate section with [list and description of components](docs/wha
 ![alt text](docs/_static/esp32-pico-kit-lna-schematic.png "Connection of a thermocouple to ESP32-PICO-KIT")
 
 
-### Load example code and check how LNA works
+### Check how LNA works
 
-Two examples are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing LNA output for in function of Stage 1 and Stage 3 cycles (discussed in [LNA Operation](docs/lna-operation.md)).
+Two example applications are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing LNA output in function of Stage 1 and Stage 3 cycles (discussed in [LNA Operation](docs/lna-operation.md)).
 
 * Arduino - [esp32-lna-measure.ino](Arduino/esp32-lna-measure/esp32-lna-measure.ino) code and [ESP32LNA](Arduino/libraries/ESP32LNA) library
 * ESP-IDF - [esp32-lna-measure.c](esp32-lna-measure/main/esp_lna_measure.c) code and [lna](components/lna) component
 
-Check section [Characterize LNA](docs/characterize-lna.md) for description what interesting and useful measurements can be done using above examples.
+Check Section [Characterize LNA](docs/characterize-lna.md) for description what interesting and useful measurements can be done using above examples.
 
 
 ## Compatibility
 
 Code provided in this repository has been developed using master branch of [arduino-esp32](https://github.com/espressif/arduino-esp32) and [ESP-IDF](https://github.com/espressif/esp-idf) framework as of August 2019.
 
-If you are not familiar with these frameworks, before starting with LNA, please follow:
+If you are not familiar with these frameworks, before starting with LNA, please follow some gudes:
 
 * Users less experienced with microcontrollers are recommended to try **Arduino** - [Installation Instructions](https://github.com/espressif/arduino-esp32#installation-instructions), so you are successful compiling and loading [GetChipID](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/ChipID/GetChipID) example.
-* More advanced users - [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successful compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
+* More advanced users - [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successfull compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
 
 
 ## Contribute
