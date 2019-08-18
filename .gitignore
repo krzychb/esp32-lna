@@ -1,9 +1,4 @@
-Arduino/esp32-lna-measure
-Arduino/libraries/ESP32LNA
-
 esp32-lna-console
-esp32-lna-measure
-components/lna
 
 */sdkconfig*
 */build/*
