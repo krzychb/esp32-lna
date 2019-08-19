@@ -27,7 +27,7 @@ ADC: 9 bit, Attenuation: (0)
 8192;  255;  143;  238;  389;  349;  285;  242;  230;  231;  230;  230;  232;  232;  233; 
 ```
 
-By changing of signal on LNA input, adjusting LNA configuration and analyzing the stage profile data, we plan to obtain the following information characterizing of LNA:
+By changing the signal on LNA input, adjusting LNA configuration and analyzing the stage profile data, we plan to obtain the following information characterizing of LNA:
 
 * Recommended number of Stage 1 and Stage 2 cycles to make measurements
 * LNA output in function of:
@@ -40,7 +40,7 @@ This will effectively provide LNA amplification characteristics in function of t
 
 We are planning to vary the following parameters:
 
-1. **Input signal voltage** by changing the temperature of hot junction of the thermocouple within range from 0 ºC to about 90 ºC. For the K type thermocouple with cold junction at 25 ºC this corresponds with voltage from **from -1.00 mV to about 2.68 m**, see [ITS-90 Reference Table for Type K Thermocouples (PDF)](https://reotemp.com/wp-content/uploads/2015/12/type-k-thermocouple-reference-table.pdf).
+1. **Input signal voltage** by changing the temperature of hot junction of the thermocouple within range from 0 ºC to 90 ºC. For the K type thermocouple with cold junction at 25 ºC this corresponds with voltage from **from -1.000 mV to 2.682 mV**, see [ITS-90 Reference Table for Type K Thermocouples (PDF)](https://reotemp.com/wp-content/uploads/2015/12/type-k-thermocouple-reference-table.pdf).
 
 2. **Input resistance** by changing **Ri** series resistance (see [schematic](../README.md#connect-the-components)) within range from **from 100 Ω to 47 kΩ**. 
 
@@ -48,7 +48,7 @@ We are planning to vary the following parameters:
 
 We are planning to wary each parameter one at a time, keep other parameters stable and take the stage profile of the LNA values. The range of **Stage 1 and Stage 3** cycles is **from 1 to 8192**. The Stage 1 cycles are shown in first row and the Stage 3 cycles in first column of the stage profile.
 
-The ADC resolution of all the tests has been fixed at **9 bits**.
+The ADC resolution of all the tests has been fixed at **9 bits**. Each measurement is an average of 256 samples.
 
 During testing we need to minimize variation of other parameters that may influence the stage profile reading. For instance we need to reduce variation of cold junction temperature (ambient temperature) and noise by keeping all connection short. 
 
@@ -84,6 +84,8 @@ In previous cheaper we have concluded to take LNA measurement for Stage 1 and St
 
 ![alt text](_static/lna-output-from-input-voltage.png "LNA output in Function of Input Voltage")
 
+It should be noted that for 0 V at the input (hot and cold junction of the thermocouple at the same temperature) the LNA reading is about 277 counts. You can double check this value by taking readings for GPIO36 and 39 connected together.
+
 Some extra measurements should be taken to cover wider range of LNA input signal to verify this characteristics within the whole range of ADC output from 0 to 512 (we have configured ADC at 9 bit resolution), as well as to check the noise for higher bit resolutions.
 
 
@@ -97,7 +99,7 @@ It should be noted that time to stabilize measurement is longer for bigger serie
 
 ![alt text](_static/lna-output-from-input-resistance.png "LNA output in Function of Input Resistance")
 
-Above chart is showing visible influence of the input signal resistance on the LNA readings within the range from Ω to about 5 kΩ. This factor should be taken into account when designing LNA into your product. If the input signal resistance is small, it is better to increase it by adding a series resistor. This should provide bigger amplification of the LNA and smaller dependency of the amplification from the resistance changes. Please note that this chart is provided for negative LNA input voltage at -1.08 mV (hot junction of the thermocouple at 0 ºC and cold junction at 27 ºC), so smaller LNA output means bigger amplification.
+Above chart is showing visible influence of the input signal resistance on the LNA readings within the range from Ω to about 5 kΩ. This factor should be taken into account when designing LNA into your product. If the input signal resistance is small, it is better to increase it by adding a series resistor. This should provide bigger amplification of the LNA and smaller dependency of the amplification from the resistance changes. Please note that this chart is provided for negative LNA input voltage at -1.081 mV (hot junction of the thermocouple at 0 ºC and cold junction at 27 ºC), so smaller LNA output means bigger amplification.
 
 
 ### LNA output in function of input attenuation
