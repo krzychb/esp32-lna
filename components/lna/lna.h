@@ -32,10 +32,10 @@ typedef struct {
 } lna_config_t;
 
 typedef struct {
-    int   adc_b;  // bottom ADC value
-    float  mv_b;  // bottom mV value
-    int   adc_t;  // top ADC value
-    float  mv_t;  // top mV value
+    float  mv_b;  // bottom mV input signal value
+    int   adc_b;  // bottom ADC reading
+    float  mv_t;  // top mV input signal value
+    int   adc_t;  // top ADC reading
 } adc_mv_cal_t;
 
 esp_err_t adc1_lna_init(lna_config_t* lna_config);

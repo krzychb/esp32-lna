@@ -148,7 +148,7 @@ uint32_t adc1_lna_get_value(uint16_t stage1_cycles, uint16_t stage3_cycles)
 float lna_adc_to_mv(adc_mv_cal_t cal, adc_bits_width_t ibw, int adc)
 {
     int sb = 3 - ibw;
-    float slope = (cal.mv_t - cal.mv_b) / ((cal.adc_t>>sb) - (cal.adc_b>>sb));
-    return  cal.mv_b  + slope * (adc - (cal.adc_b>>sb));
+    return cal.mv_b + (cal.mv_t - cal.mv_b)
+            * (adc - (cal.adc_b>>sb)) / ((cal.adc_t>>sb) - (cal.adc_b>>sb));
 }
 

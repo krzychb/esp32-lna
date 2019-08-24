@@ -30,6 +30,13 @@
 
 #include <Arduino.h>
 
+typedef struct {
+    float  mv_b;  // bottom mV input signal value
+    int   adc_b;  // bottom ADC reading
+    float  mv_t;  // top mV input signal value
+    int   adc_t;  // top ADC reading
+} adc_mv_cal_t;
+
 
 class ESP32LNA
 {
@@ -37,7 +44,8 @@ class ESP32LNA
         ESP32LNA();
 
         bool init(uint8_t adc_bits_width, adc_attenuation_t adc_attenuation);
-        uint16_t getValue(uint16_t stage1_cycles, uint16_t stage3_cycles); 
+        uint16_t getValue(uint16_t stage1_cycles, uint16_t stage3_cycles);
+        float adc_to_mv(adc_mv_cal_t cal, uint8_t ibw, int adc);
 };
 
 #endif  /* ESP32LNA_H */

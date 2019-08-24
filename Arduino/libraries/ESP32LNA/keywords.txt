@@ -12,6 +12,7 @@ ESP32LNA	KEYWORD1
 ###########################################
 init	   KEYWORD2
 getValue   KEYWORD2
+adc_to_mv  KEYWORD2
 
 ###########################################
 # Constants (LITERAL1)

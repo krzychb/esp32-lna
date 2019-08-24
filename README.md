@@ -83,6 +83,11 @@ Two example applications are provided. One for Arduino and the other one for ESP
 
 Check Section [Characterize LNA](docs/characterize-lna.md) for description what interesting and useful measurements can be done using above examples.
 
+Next two examples provide practical implementation of measurement of mV signal from a thermocouple and conversion to temperature.
+
+* Arduino - [esp32-lna-thermocouple.ino](Arduino/esp32-lna-thermocouple/esp32-lna-thermocouple.ino) code and [ESP32LNA](Arduino/libraries/ESP32LNA) library
+* ESP-IDF - [esp32-lna-thermocouple.c](esp32-lna-thermocouple/main/thermocouple.c) code and [lna](components/lna) component
+
 
 ## Compatibility
 

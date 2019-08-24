@@ -3,6 +3,6 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := esp-lna-measure
+PROJECT_NAME := esp-lna-thermocouple
 
 include $(IDF_PATH)/make/project.mk

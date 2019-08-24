@@ -145,3 +145,10 @@ uint16_t ESP32LNA::getValue(uint16_t stage1_cycles, uint16_t stage3_cycles)
     return GET_PERI_REG_BITS2(SENS_SAR_MEAS_START1_REG, SENS_MEAS1_DATA_SAR, SENS_MEAS1_DATA_SAR_S);
 }
 
+
+float ESP32LNA::adc_to_mv(adc_mv_cal_t cal, uint8_t ibw, int adc)
+{
+    int sb = 12 - ibw;
+    return cal.mv_b + (cal.mv_t - cal.mv_b)
+            * (adc - (cal.adc_b>>sb)) / ((cal.adc_t>>sb) - (cal.adc_b>>sb));
+}
