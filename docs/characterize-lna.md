@@ -1,9 +1,17 @@
 ## Characterize LNA
 
-To be able to characterize LNA you need to complete two steps described is Section [Get Started with LNA](../README.md#get-started-with-lna):
+Before checking characteristic of LNA it is recommended to get it work in a simple configuration described in Section [Get Started with LNA](../README.md#get-started-with-lna). 
 
-* Connect ESP32 board, thermocouple and other components listed in Section [What you Need](what-you-need.md) according to schematic shown in Section [Connect the components](../README.md#connect-the-components).
-* Load Arduino or ESP-IDF application code discussed in Section [Load example code and check how LNA works](../README.md#load-example-code-and-check-how-lna-works) onto the ESP32 board.
+In this section we are going to demonstrate what parameters are available to configure LNA to operate with a voltage source of specific input resistance and voltage range.
+
+To start with connect ESP32 board, thermocouple and other components listed in Section [What you Need](what-you-need.md) according to schematic below:
+
+![alt text](_static/esp32-pico-kit-lna-schematic.png "Connection of a thermocouple to ESP32-PICO-KIT including additional temperature measurement for cold junction temperature compensation")
+
+Depending on IDE you use load Arduino or ESP-IDF application code:
+
+* Arduino - [esp32-lna-measure.ino](Arduino/esp32-lna-measure/esp32-lna-measure.ino)
+* ESP-IDF - [esp32-lna-measure.c](esp32-lna-measure/main/esp_lna_measure.c)
 
 Both application provide identical functionality. They take LNA measurements and show repeatedly the following output on terminal. This output is refereed to as a **stage profile**:
 

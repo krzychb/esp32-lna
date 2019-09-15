@@ -1,4 +1,4 @@
-/* ESP32 LNA Thermocouple Example (https://github.com/krzychb/esp32-lna)
+/* ESP32 LNA Thermocouple Basic Example (https://github.com/krzychb/esp32-lna)
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -8,7 +8,6 @@
 */
 
 #include <ESP32LNA.h>
-#include <SimpleDHT.h>
 
 #define ADC_WIDTH_BIT              (10)
 #define ADC_ATTEN             (ADC_0db)
@@ -61,10 +60,6 @@ const double poly_k[] = {
 };
 
 
-ESP32LNA lna;
-SimpleDHT22 dht22(AMS2302_PIN);
-
-
 double calc_temperature(float milivolts)
 {
     double temperature = poly_k[0];
@@ -87,21 +82,6 @@ void setup()
 }
 
 
-int16_t get_cold_junction_temperature(void)
-{
-    int result = SimpleDHTErrSuccess;
-    byte temperature = COLD_JUCTION_TEMPERATURE;
-    byte humidity = 0;
-    char logString[60];
-
-    if ((result = dht22.read(&temperature, &humidity, NULL)) != SimpleDHTErrSuccess) {
-        sprintf(logString, "Read AMS2302 failed (%d)\n", result);
-        Serial.print(logString);
-    }
-    return temperature;
-}
-
-
 void loop()
 {
   char logString[60];
@@ -115,7 +95,7 @@ void loop()
     adc_sum /= ADC_SAMPLE_COUNT;
     double milivolts = lna.adc_to_mv(thk_cal, ADC_WIDTH_BIT, adc_sum);
     double temperature = calc_temperature(milivolts);
-    int16_t temperature_cj = get_cold_junction_temperature();
+    int16_t temperature_cj = COLD_JUCTION_TEMPERATURE;
     temperature += temperature_cj;
     sprintf(logString, "Thermocouple: %.3f mV, %.0f oC, Cold junction temperature: %d oC, ADC raw count: %d\n",
             milivolts, temperature, temperature_cj, adc_sum);

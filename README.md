@@ -40,8 +40,10 @@ After this rough introduction we are ready to get started. Stay with me. It shou
     * [What your need?](#what-your-need)
     * [Connect the components](#connect-the-components)
     * [Check how LNA works](#check-how-lna-works)
+* [Get more out of LNA](#get-more-out-of-lna)
     * [Characterize LNA](docs/characterize-lna.md)
-* [Contability](#contability)
+* [Libraries](#libraries)
+* [Compatibility](#compatibility)
 * [Contribute](#contribute)
 * [Credits](#credits)
 * [License](#license)
@@ -63,7 +65,7 @@ You are a step ahead to get started with ESP32 and LNA and this section will sho
 
 * ESP32 development board with sampling capacitors.
 * Computer [configured and tested](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) to work with ESP-IDF.
-* Source of a small (in mV range) DC signal.
+* A thermocouple or another source of a small DC signal (in mV range).
 * LNA example code from [esp32-lna](https://github.com/krzychb/esp32-lna) repository.
 
 Please see a separate section with [list and description of components](docs/what-you-need.md) that will be useful testing the LNA. 
@@ -71,32 +73,61 @@ Please see a separate section with [list and description of components](docs/wha
 
 ### Connect the components
 
-![alt text](docs/_static/esp32-pico-kit-lna-schematic.png "Connection of a thermocouple to ESP32-PICO-KIT")
+![alt text](docs/_static/esp32-pico-kit-lna-schematic-basic.png "Connection of a thermocouple to ESP32-PICO-KIT")
 
 
 ### Check how LNA works
 
-Two example applications are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing LNA output in function of Stage 1 and Stage 3 cycles (discussed in [LNA Operation](docs/lna-operation.md)).
+Two example applications are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing temperature measured by a thermocouple connected to the LNA inputs of ESP32.
 
-* Arduino - [esp32-lna-measure.ino](Arduino/esp32-lna-measure/esp32-lna-measure.ino) code and [ESP32LNA](Arduino/libraries/ESP32LNA) library
-* ESP-IDF - [esp32-lna-measure.c](esp32-lna-measure/main/esp_lna_measure.c) code and [lna](components/lna) component
+* Arduino - [esp32-lna-thermocouple-basic-basic.ino](Arduino/esp32-lna-thermocouple-basic/esp32-lna-thermocouple-basic.ino)
+* ESP-IDF - [esp32-lna-thermocouple_basic.c](esp32-lna-thermocouple/main/thermocouple_basic.c)
 
-Check Section [Characterize LNA](docs/characterize-lna.md) for description what interesting and useful measurements can be done using above examples.
+Next two examples are quite similar but provide measurement of ambient temperature using additional temperature sensor and perform cold junction temperature compensation.
 
-Next two examples provide practical implementation of measurement of mV signal from a thermocouple and conversion to temperature.
+* Arduino - [esp32-lna-thermocouple.ino](Arduino/esp32-lna-thermocouple/esp32-lna-thermocouple.ino)
+* ESP-IDF - [esp32-lna-thermocouple.c](esp32-lna-thermocouple/main/thermocouple.c)
 
-* Arduino - [esp32-lna-thermocouple.ino](Arduino/esp32-lna-thermocouple/esp32-lna-thermocouple.ino) code and [ESP32LNA](Arduino/libraries/ESP32LNA) library
-* ESP-IDF - [esp32-lna-thermocouple.c](esp32-lna-thermocouple/main/thermocouple.c) code and [lna](components/lna) component
+Example output:
+
+```
+...
+I (0) cpu_start: Starting scheduler on APP CPU.
+ADC: 10 bit, Attenuation: (0)
+Initializing LNA...done
+Thermocouple: -1.217 mV, -1 oC, Cold junction temperature: 29 oC, ADC raw count: 393
+Thermocouple: -1.174 mV, 0 oC, Cold junction temperature: 29 oC, ADC raw count: 399
+Thermocouple: -1.196 mV, -0 oC, Cold junction temperature: 29 oC, ADC raw count: 396
+Thermocouple: -1.203 mV, -0 oC, Cold junction temperature: 29 oC, ADC raw count: 395
+...
+```
+
+## Get more out of LNA
+
+You may want to use LNA with a voltage source other that a thermocuple. To do so, first characterize the LNA with this particular voltage source. There are two examples provided specifically for this purpose, one for Arduino and one for ESP-IDF. They provide identical functionality showing LNA output in function of Stage 1 and Stage 3 cycles (discussed in [LNA Operation](docs/lna-operation.md)).
+
+* Arduino - [esp32-lna-measure.ino](Arduino/esp32-lna-measure/esp32-lna-measure.ino)
+* ESP-IDF - [esp32-lna-measure.c](esp32-lna-measure/main/esp_lna_measure.c)
+
+Check Section [Characterize LNA](docs/characterize-lna.md) for specific instructions.
+
+
+## Libraries
+
+All examples in this repository use the same library code:
+
+* Arduino - [ESP32LNA](Arduino/libraries/ESP32LNA) library
+* ESP-IDF - [lna](components/lna) component
 
 
 ## Compatibility
 
 Code provided in this repository has been developed using master branch of [arduino-esp32](https://github.com/espressif/arduino-esp32) and [ESP-IDF](https://github.com/espressif/esp-idf) framework as of August 2019.
 
-If you are not familiar with these frameworks, before starting with LNA, please follow some gudes:
+If you are not familiar with these frameworks, before starting with LNA, please follow some guides:
 
 * Users less experienced with microcontrollers are recommended to try **Arduino** - [Installation Instructions](https://github.com/espressif/arduino-esp32#installation-instructions), so you are successful compiling and loading [GetChipID](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/ChipID/GetChipID) example.
-* More advanced users - [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successfull compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
+* More advanced users - [ESP32 Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html), so you are successful compiling and loading [hello_world](https://github.com/espressif/esp-idf/tree/master/examples/get-started/hello_world) example.
 
 
 ## Contribute

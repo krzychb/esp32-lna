@@ -1,4 +1,4 @@
-/* ESP32 LNA Thermocouple Example (https://github.com/krzychb/esp32-lna)
+/* ESP32 LNA Thermocouple Basic Example (https://github.com/krzychb/esp32-lna)
 
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -23,7 +23,7 @@
 #define LNA_STAGE_1_CYCLES            (1024)
 #define LNA_STAGE_3_CYCLES              (64)
 
-#define COLD_JUCTION_TEMPERATURE        (25)
+#define COLD_JUCTION_TEMPERATURE        (29)
 
 
 /*  
@@ -82,23 +82,6 @@ double calc_temperature(float milivolts)
 }
 
 
-int16_t get_cold_junction_temperature(void)
-{
-    dht_sensor_type_t sensor_type = DHT_TYPE_AM2301;
-    gpio_num_t dht_gpio = 5;
-    int16_t temperature = COLD_JUCTION_TEMPERATURE;
-    int16_t humidity = 0;
-
-    esp_err_t result = dht_read_data(sensor_type, dht_gpio, &humidity, &temperature);
-    if (result == ESP_OK) {
-        temperature /= 10;
-    } else {
-        printf("Could not read data from temperature sensor\n");
-    }
-    return temperature;
-}
-
-
 void app_main(void)
 {
     printf("ADC: %d bit, Attenuation: (%d)\n", ADC_WIDTH_BIT+9, ADC_ATTEN);
@@ -115,7 +98,7 @@ void app_main(void)
         adc_sum /= ADC_SAMPLE_COUNT;
         double milivolts = lna_adc_to_mv(thk_cal, ADC_WIDTH_BIT, adc_sum);
         double temperature = calc_temperature(milivolts);
-        int16_t temperature_cj = get_cold_junction_temperature();
+        int16_t temperature_cj = COLD_JUCTION_TEMPERATURE;
         temperature += temperature_cj;
         printf("Thermocouple: %.3f mV, %.0f oC, Cold junction temperature: %d oC, ADC raw count: %d\n",
                 milivolts, temperature, temperature_cj, adc_sum);
