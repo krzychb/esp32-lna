@@ -81,12 +81,12 @@ Please see a separate section with [list and description of components](docs/wha
 Two example applications are provided. One for Arduino and the other one for ESP-IDF platform. Both examples provide identical functionality showing temperature measured by a thermocouple connected to the LNA inputs of ESP32.
 
 * Arduino - [esp32-lna-thermocouple-basic-basic.ino](Arduino/esp32-lna-thermocouple-basic/esp32-lna-thermocouple-basic.ino)
-* ESP-IDF - [esp32-lna-thermocouple_basic.c](esp32-lna-thermocouple/main/thermocouple_basic.c)
+* ESP-IDF - [esp32_lna_thermocouple_basic.c](esp32-lna-thermocouple/main/esp32_lna_thermocouple_basic.c)
 
 Next two examples are quite similar but provide measurement of ambient temperature using additional temperature sensor and perform cold junction temperature compensation.
 
 * Arduino - [esp32-lna-thermocouple.ino](Arduino/esp32-lna-thermocouple/esp32-lna-thermocouple.ino)
-* ESP-IDF - [esp32-lna-thermocouple.c](esp32-lna-thermocouple/main/thermocouple.c)
+* ESP-IDF - [esp32_lna_thermocouple.c](esp32-lna-thermocouple/main/esp32_lna_thermocouple.c)
 
 Example output:
 
