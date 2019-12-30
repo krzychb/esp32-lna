@@ -11,7 +11,6 @@
 #include "freertos/task.h"
 
 #include "lna.h"
-#include "dht.h"
 
 #include "math.h"
 
