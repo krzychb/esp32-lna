@@ -4,5 +4,6 @@
 #
 
 PROJECT_NAME := esp-lna-thermocouple
+EXTRA_COMPONENT_DIRS := $(CURDIR)/../components
 
 include $(IDF_PATH)/make/project.mk
